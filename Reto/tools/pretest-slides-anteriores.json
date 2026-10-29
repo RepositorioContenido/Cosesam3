@@ -1,0 +1,83 @@
+{"nota": "Slides anteriores del Pretest (cuestionario), retiradas el 24/10/2026. Para restaurarlas, pega el arreglo slides en content.json.", "slides": [
+
+        {
+          "id": "pretest-slide-featured",
+          "type": "featured",
+          "tabTitle": "Diagnóstico Inicial",
+          "tabNum": "01",
+          "badge": "PRETEST",
+          "title": "Evaluación Diagnóstica de Saberes Previos",
+          "text": "El pretest permite identificar tus conocimientos y experiencias previas sobre innovación pedagógica, ergonomía cognitiva y diseño de retos formativos interactivos.",
+          "highlight": "No te preocupes si no conoces todas las respuestas: este ejercicio inicial sirve de punto de partida para tu ruta de aprendizaje."
+        },
+        {
+          "id": "pretest-slide-questions",
+          "type": "question",
+          "tabTitle": "Cuestionario Pretest",
+          "tabNum": "02",
+          "badge": "EVALUACIÓN",
+          "title": "Comprobación Diagnóstica: Principios de Innovación y Retos",
+          "paragraph": "Responde con sinceridad según tu experiencia formativa previa para calibrar tu nivel de partida.",
+          "questions": [
+            {
+              "id": "pre-q1",
+              "type": "single",
+              "badge": "PREGUNTA 1 • SELECCIÓN ÚNICA",
+              "question": "¿Cuál es el propósito central de estructurar la formación mediante retos pedagógicos situados?",
+              "instructions": "Selecciona una única respuesta correcta:",
+              "options": [
+                {
+                  "id": "pre-o1",
+                  "text": "Conectar el aprendizaje con problemas reales del entorno productivo y social.",
+                  "correct": true,
+                  "feedback": "¡Correcto! Los retos pedagógicos buscan que el aprendiz movilice conocimientos en situaciones contextualizadas y significativas."
+                },
+                {
+                  "id": "pre-o2",
+                  "text": "Memorizar definiciones teóricas sin aplicación inmediata en talleres o empresas.",
+                  "correct": false,
+                  "feedback": "Incorrecto. El enfoque por competencias del SENA prioriza el saber hacer contextualizado."
+                },
+                {
+                  "id": "pre-o3",
+                  "text": "Evaluar únicamente al final del curso sin ofrecer retroalimentación intermedia.",
+                  "correct": false,
+                  "feedback": "Incorrecto. La evaluación formativa acompaña permanentemente al estudiante."
+                }
+              ]
+            },
+            {
+              "id": "pre-q2",
+              "type": "multiple",
+              "badge": "PREGUNTA 2 • MÚLTIPLE RESPUESTA",
+              "question": "Selecciona las características clave de un diseño instruccional inmersivo eficaz:",
+              "instructions": "Marca todas las opciones correctas:",
+              "options": [
+                {
+                  "id": "pre-m1",
+                  "text": "Micro-interacciones deliberadas con retroalimentación inmediata.",
+                  "correct": true
+                },
+                {
+                  "id": "pre-m2",
+                  "text": "Estructura modular clara que reduce la sobrecarga cognitiva.",
+                  "correct": true
+                },
+                {
+                  "id": "pre-m3",
+                  "text": "Saturación excesiva de texto continuo en cada pantalla virtual.",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "id": "pre-q3",
+              "type": "open",
+              "badge": "PREGUNTA 3 • REFLEXIÓN DIAGNÓSTICA",
+              "question": "¿Qué expectativas y conocimientos previos traes sobre el uso de retos formativos en tu área?",
+              "instructions": "Escribe tus reflexiones iniciales antes de iniciar la unidad:",
+              "placeholder": "Describe brevemente tus experiencias previas y lo que esperas lograr con estos retos formativos..."
+            }
+          ]
+        }
+      ]}

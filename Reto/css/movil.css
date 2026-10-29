@@ -1,0 +1,365 @@
+/* ==========================================================================
+   OVA Reto • AJUSTES DE LA VISTA MÓVIL (oct 2026)
+   Archivo aparte de styles.css: se carga después y prevalece sobre él.
+   Si index.html no lo enlaza, js/carousel.js lo agrega automáticamente.
+   ========================================================================== */
+/* ==========================================================================
+   AJUSTES MÓVIL (oct 2026)
+   Se cargan al final para prevalecer sobre los bloques responsive anteriores.
+   - Alturas con dvh: 100vh en móvil incluye la barra del navegador y
+     escondía el pie, el dock y el final del modal.
+   - Header compacto: logos + etiqueta en una fila y título a lo ancho.
+   - Carrusel: imagen según el alto disponible para que 01 y 02 entren.
+   - Modal: pestañas de secciones fijas abajo, siempre a mano.
+   ========================================================================== */
+@media (max-width: 768px) {
+  .ova-canvas {
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+
+  /* --- Menú carrusel: si la pantalla es muy baja, la sección hace scroll
+         en vez de recortar los recursos --- */
+  .menu-carrusel-section {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .header-progress-line,
+  .editorial-header,
+  .editorial-footer {
+    flex-shrink: 0;
+  }
+
+  .editorial-header {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "foe   .     sena"
+      "label label label"
+      "title title title";
+    column-gap: 10px;
+    row-gap: 8px;
+    padding: 12px 16px 14px;
+  }
+  .header-brand {
+    justify-self: center;
+    padding-top: 8px;
+    border-top: 1px solid rgba(12, 51, 76, 0.12);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .unit-badge {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+  .course-meta {
+    border-left: none;
+    padding-left: 0;
+  }
+  .course-title {
+    font-size: 14px;
+    line-height: 1.35;
+    text-align: center;
+    hyphens: manual;
+    -webkit-hyphens: manual;
+    text-wrap: balance;
+  }
+
+  .editorial-stage {
+    flex: 1 1 0;
+    min-height: 360px;
+    padding: 8px 16px 20px;
+  }
+  .circular-theme-img {
+    /* El alto disponible manda: header + pie + arcos y botones ocupan ~520px */
+    max-height: clamp(120px, calc(100dvh - 520px), 260px);
+  }
+  .circular-carousel-wrapper.two-items .wove-section-icon {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    min-height: 58px;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-content {
+    gap: 12px;
+    padding: 10px 14px;
+  }
+  .wove-node-num {
+    font-size: 40px;
+  }
+
+  .editorial-footer {
+    padding: 10px 16px calc(78px + env(safe-area-inset-bottom, 0px));
+  }
+  .footer-legal-notice {
+    font-size: 11px;
+    line-height: 1.4;
+    max-width: 36em;
+    margin: 0 auto;
+  }
+  .purple-dock-nav {
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    height: 56px;
+  }
+
+  /* --- Modal de recursos --- */
+  .rams-modal-wrapper {
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+  .rams-modal-topbar {
+    flex-shrink: 0;
+    padding: 8px 12px 8px 16px;
+    padding-top: calc(8px + env(safe-area-inset-top, 0px));
+  }
+  .rams-close-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .rams-modal-container {
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 0;
+  }
+  .rams-modal-grid {
+    height: 100%;
+    overscroll-behavior: contain;
+  }
+  .rams-col-media {
+    height: 180px;
+    border-radius: 0;
+  }
+  .support-product-img {
+    border-radius: 0;
+  }
+  .rams-col-content {
+    padding: 22px 16px 28px;
+  }
+  .rams-huge-code {
+    font-size: 40px;
+  }
+  .modal-slide {
+    scroll-margin-top: 12px;
+  }
+
+  /* Pestañas de secciones: barra fija al pie del modal, con scroll lateral */
+  .rams-col-subtopics {
+    position: sticky;
+    bottom: 0;
+    z-index: 6;
+    flex-shrink: 0;
+    overflow: visible;
+    padding: 10px 0 calc(10px + env(safe-area-inset-bottom, 0px));
+    background: #f3f7fa;
+    box-shadow: 0 -6px 18px rgba(12, 51, 76, 0.08);
+  }
+  .rams-col-subtopics .subtopics-header {
+    display: none;
+  }
+  .subtopics-list {
+    gap: 8px;
+    padding: 2px 16px;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 16px;
+    scrollbar-width: none;
+  }
+  .subtopics-list::-webkit-scrollbar {
+    display: none;
+  }
+  .rams-col-subtopics .slide-nav-tab {
+    flex: 0 0 auto;
+    width: 150px;
+    min-height: 58px;
+    padding: 8px 10px 8px 12px;
+    gap: 2px;
+    scroll-snap-align: start;
+  }
+  .rams-col-subtopics .slide-nav-tab:hover {
+    transform: none;
+  }
+  .rams-col-subtopics .slide-tab-title {
+    font-size: 12px;
+    -webkit-line-clamp: 2;
+  }
+
+  /* --- Créditos y bibliografía --- */
+  .sticker-image-wrapper {
+    height: 180px;
+  }
+  .amie-info-sticker:hover,
+  .amie-media-sticker:hover {
+    transform: none !important;
+  }
+}
+
+/* Teléfono en horizontal: poco alto, el header pasa a una sola línea */
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 1024px) {
+  .ova-canvas {
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+  .menu-carrusel-section {
+    overflow-y: auto;
+  }
+  .editorial-header {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    min-height: 0;
+  }
+  .header-logo-foe,
+  .header-logo-sena {
+    max-height: 40px;
+    width: auto;
+  }
+  .course-title {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+  .editorial-stage {
+    flex: 1 1 0;
+    min-height: 300px;
+  }
+  .editorial-footer {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .footer-legal-notice {
+    font-size: 10.5px;
+  }
+  .rams-modal-wrapper {
+    max-height: 100dvh;
+  }
+  .rams-modal-container {
+    height: calc(100dvh - 64px);
+  }
+}
+
+/* Sin hover real (pantallas táctiles): los efectos de hover no se quedan pegados */
+@media (hover: none) {
+  .amie-info-sticker:hover,
+  .amie-media-sticker:hover {
+    transform: none !important;
+  }
+}
+
+/* --- Menú móvil: círculo completo alrededor de la imagen + pines --- */
+@media (max-width: 768px) {
+  .wove-arc-line.is-ring {
+    stroke: url(#senaRingGradient);
+    stroke-width: 3.5;
+    filter: drop-shadow(0 2px 6px rgba(23, 77, 147, 0.18));
+  }
+  .circular-theme-img {
+    /* Deja lugar para el círculo y los textos por fuera de él */
+    max-height: clamp(120px, calc(100dvh - 560px), 240px);
+  }
+
+  /* Pin: punto azul oscuro con aro blanco y borde, sobre el círculo */
+  .circular-carousel-wrapper.two-items .wove-node-dot,
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) .wove-node-dot {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-color: #0c334c;
+    border: 4px solid #FFFFFF;
+    box-shadow: 0 0 0 2px #0c334c, 0 3px 8px rgba(12, 51, 76, 0.3);
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) .wove-node-dot {
+    background-color: #64748B;
+    box-shadow: 0 0 0 2px #64748B, 0 3px 8px rgba(12, 51, 76, 0.2);
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item.is-hovered .wove-node-dot,
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active):hover .wove-node-dot {
+    background-color: var(--sena-blue-electric);
+    box-shadow: 0 0 0 2px var(--sena-blue-electric), 0 0 10px rgba(40, 186, 184, 0.55);
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+
+  /* Texto de los botones, por fuera del círculo */
+  .circular-carousel-wrapper.two-items .wove-node-content {
+    transform-origin: 50% 50%;
+    padding: 4px 8px;
+    gap: 12px;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item.is-active .wove-node-num {
+    font-size: 46px;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) .wove-node-num {
+    font-size: 40px;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item.is-active .wove-node-title {
+    font-size: 23px;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) .wove-node-title {
+    font-size: 21px;
+  }
+  .circular-carousel-wrapper.two-items .wove-section-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    min-height: 52px;
+  }
+}
+
+/* --- Menú móvil: los toques deben llegar a los botones ---
+   La imagen central (.editorial-overview, z-index 10) comparte celda con el
+   carrusel y lo cubría por completo: se veían los botones pero no se podían
+   tocar. La capa de la imagen deja pasar los toques. */
+@media (max-width: 768px) {
+  .editorial-overview,
+  .editorial-overview * {
+    pointer-events: none;
+  }
+}
+
+
+/* --- Menú móvil: los dos botones con el mismo aspecto (como Pretest) ---
+   El estado normal ya no atenúa el botón no seleccionado; el rollover
+   (azul + brillo del ícono) se mantiene. */
+@media (max-width: 768px) {
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) {
+    opacity: 1;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item .wove-node-num,
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) .wove-node-num {
+    font-size: 46px;
+    color: var(--sena-navy);
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item .wove-node-title,
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) .wove-node-title {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--sena-navy);
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item .wove-node-details,
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) .wove-node-details {
+    opacity: 1;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item .wove-node-dot,
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) .wove-node-dot {
+    background-color: #0c334c;
+    box-shadow: 0 0 0 2px #0c334c, 0 3px 8px rgba(12, 51, 76, 0.3);
+  }
+
+  /* Rollover */
+  .circular-carousel-wrapper.two-items .wove-node-item.is-hovered .wove-node-num {
+    color: var(--sena-blue-electric);
+    transform: scale(1.06);
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item.is-hovered .wove-node-title {
+    color: var(--sena-blue-electric);
+    transform: translateX(4px);
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item.is-hovered .wove-section-icon {
+    filter: drop-shadow(0 14px 28px rgba(12, 51, 76, 0.28)) drop-shadow(0 0 20px rgba(40, 186, 184, 0.5)) !important;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item.is-hovered .wove-node-dot {
+    background-color: var(--sena-blue-electric);
+    box-shadow: 0 0 0 2px var(--sena-blue-electric), 0 0 10px rgba(40, 186, 184, 0.55);
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}

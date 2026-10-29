@@ -1,0 +1,825 @@
+/* ==========================================================================
+   OVA Reto central · AJUSTES DEL PROYECTO
+   Se carga después de styles.css (estilos base de la plantilla) y prevalece
+   sobre él. Contiene los componentes propios de este OVA y la vista móvil.
+
+   1. Encabezado del modal
+   2. Slides: tipografía, íconos, bloques (lista, acordeón, destacado)
+   3. Botón de enlace ("actionUrl") y tarjeta de llamado a la acción ("cta-hero")
+   4. Tarjetas giratorias
+   5. Móvil (<= 768px)
+   6. Teléfono en horizontal
+   7. Pantallas táctiles y movimiento reducido
+   8. Créditos: bloque institucional
+   9. Menú: logos en la esquina inferior derecha
+   ========================================================================== */
+
+
+/* ---------------------------------------------------------------------------
+   1. ENCABEZADO DEL MODAL
+   Un título largo ("code" con más de 24 caracteres) se muestra como titular.
+   --------------------------------------------------------------------------- */
+.rams-huge-code.is-long-title {
+  display: block;
+  font-size: clamp(28px, 2.7vw, 38px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  max-width: 24em;
+  margin-bottom: 10px;
+}
+
+
+/* ---------------------------------------------------------------------------
+   2. SLIDES
+   Textos generales a 18px y títulos de slide a 20px.
+   --------------------------------------------------------------------------- */
+.modal-slide .slide-intro-title {
+  font-size: 20px;
+  line-height: 1.3;
+}
+.modal-slide .slide-intro-desc,
+.modal-slide .slide-paragraph,
+.modal-slide .slide-block-list li,
+.modal-slide .accordion-title,
+.modal-slide .accordion-content-inner p,
+.modal-slide .flipcards-instruction,
+.modal-slide .card-back-desc,
+.modal-slide .featured-text {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Ícono al lado del título de la slide ("icon") */
+.slide-intro-title-row:has(.slide-intro-icon) {
+  gap: 16px;
+  align-items: center;
+}
+.slide-intro-title-row .slide-intro-icon {
+  width: 72px;
+  height: 72px;
+  filter: drop-shadow(0 4px 8px rgba(12, 51, 76, 0.14));
+}
+
+/* Bloques en orden ("blocks"): párrafo, lista numerada, acordeón y destacado */
+.slide-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.slide-blocks .slide-paragraph em {
+  color: #64748B;
+}
+.slide-block-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: item;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.slide-block-list li {
+  counter-increment: item;
+  position: relative;
+  padding: 12px 14px 12px 52px;
+  background: #F6F9FB;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  font-family: var(--font-secondary);
+  color: var(--sena-navy);
+}
+.slide-block-list li::before {
+  content: counter(item);
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--sena-navy, #0c334c);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+.slide-block-accordion {
+  margin-top: 4px;
+}
+.slide-block-highlight {
+  margin-top: 8px;
+  padding: 22px 24px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #3aa735 0%, #b0ca22 100%);
+  box-shadow: 0 12px 28px -10px rgba(12, 51, 76, 0.45);
+}
+.slide-block-highlight-lead {
+  margin: 0 0 8px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--sena-green, #094bcb);
+}
+.slide-block-highlight-text {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #FFFFFF;
+  text-wrap: pretty;
+}
+
+
+/* ---------------------------------------------------------------------------
+   3. BOTÓN DE ENLACE Y TARJETA DE LLAMADO A LA ACCIÓN
+   --------------------------------------------------------------------------- */
+.slide-cta-wrapper {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.btn-slide-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 13px 26px;
+  background-color: var(--sena-green);
+  color: #FFFFFF !important;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  border-radius: var(--radius-md, 8px);
+  box-shadow: 0 4px 14px rgba(9, 75, 203, 0.32);
+  transition: all var(--transition-fast, 180ms ease);
+  cursor: pointer;
+  letter-spacing: 0.2px;
+}
+.btn-slide-cta:hover {
+  background-color: #174d93;
+  box-shadow: 0 6px 20px rgba(9, 75, 203, 0.45);
+  transform: translateY(-2px);
+}
+.btn-slide-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(9, 75, 203, 0.3);
+}
+.btn-slide-cta:focus-visible {
+  outline: 2px solid var(--sena-navy, #0c334c);
+  outline-offset: 3px;
+}
+.btn-slide-cta .cta-arrow-icon {
+  transition: transform var(--transition-fast, 180ms ease);
+}
+.btn-slide-cta:hover .cta-arrow-icon {
+  transform: translate(2px, -2px);
+}
+
+/* "variant": "cta-hero": degradado #3aa735 -> #0c334c con textura de puntos */
+.modal-slide:has(.slide-cta-hero) {
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+.slide-cta-hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 36px;
+  padding: 40px 44px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.07) 1.3px, transparent 1.8px) 0 0 / 18px 18px,
+    linear-gradient(135deg, #3aa735 0%, #b0ca22 100%);
+  box-shadow: 0 22px 44px -18px rgba(12, 51, 76, 0.55);
+}
+.cta-hero-visual {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  display: grid;
+  place-items: center;
+}
+.cta-hero-halo {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.08), 0 18px 36px -12px rgba(0, 0, 0, 0.45);
+}
+.cta-hero-icon {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 16px rgba(12, 51, 76, 0.28));
+  animation: ctaHeroFloat 5s ease-in-out infinite;
+}
+@keyframes ctaHeroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.cta-hero-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+.cta-hero-kicker {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.cta-hero-headline {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(24px, 2.3vw, 30px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  text-wrap: balance;
+}
+.cta-hero-text {
+  margin: 0;
+  font-family: var(--font-secondary);
+  font-size: 18px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 40ch;
+}
+.slide-cta-hero .slide-cta-wrapper {
+  margin-top: 16px;
+}
+.slide-cta-hero .btn-slide-cta {
+  min-height: 54px;
+  padding: 15px 30px;
+  font-size: 17px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px -6px rgba(9, 75, 203, 0.7);
+}
+.slide-cta-hero .btn-slide-cta:hover {
+  box-shadow: 0 14px 30px -6px rgba(9, 75, 203, 0.85);
+}
+.slide-cta-hero .btn-slide-cta:focus-visible {
+  outline: 2px solid #FFFFFF;
+}
+@media (max-width: 900px) {
+  .slide-cta-hero {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 32px 22px 28px;
+  }
+  .cta-hero-body {
+    align-items: center;
+  }
+  .cta-hero-visual {
+    width: 140px;
+    height: 140px;
+  }
+  .cta-hero-icon {
+    width: 104px;
+    height: 104px;
+  }
+  .slide-cta-hero .slide-cta-wrapper {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   4. TARJETAS GIRATORIAS
+   --------------------------------------------------------------------------- */
+.modal-slide .card-back-title {
+  font-size: 20px;
+}
+
+/* Con 4 tarjetas: grilla 2 × 2 y más alto para el reverso */
+@media (min-width: 901px) {
+  .flipcards-grid:has(> .flip-card-wrapper:nth-child(4)) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .flipcards-grid:has(> .flip-card-wrapper:nth-child(4)) .flip-card-wrapper {
+    height: 240px;
+  }
+  /* Con ícono sobre el título, la tarjeta crece según el reverso más largo */
+  .flipcards-grid:has(.card-front-hero):has(> .flip-card-wrapper:nth-child(4)) .flip-card-wrapper {
+    height: auto;
+  }
+}
+
+/* "iconAboveTitle": true -> ícono grande centrado sobre el título, una
+   tarjeta por fila y altura según el contenido: las dos caras comparten la
+   misma celda, así la tarjeta mide lo que su cara más larga. */
+.flipcards-grid:has(.card-front-hero) {
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: 14px;
+}
+.flipcards-grid:has(.card-front-hero) .flip-card-wrapper {
+  height: auto;
+}
+.flipcards-grid:has(.card-front-hero) .flip-card-inner {
+  display: grid;
+  height: 100%;
+}
+.flipcards-grid:has(.card-front-hero) .flip-card-front,
+.flipcards-grid:has(.card-front-hero) .flip-card-back {
+  position: relative;
+  inset: auto;
+  grid-area: 1 / 1;
+  height: auto;
+  min-height: 230px;
+  padding: 22px 26px;
+}
+.flipcards-grid:has(.card-front-hero) .card-back-desc {
+  max-width: 62ch;
+}
+.card-front-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 0;
+  text-align: center;
+}
+.card-front-hero-icon {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(12, 51, 76, 0.16));
+}
+.card-front-hero .card-front-title {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+
+/* ---------------------------------------------------------------------------
+   5. MÓVIL (<= 768px)
+   - Alturas con dvh: 100vh incluye la barra del navegador y escondía el pie,
+     el dock y el final del modal.
+   - Encabezado compacto: logos arriba, etiqueta y título a lo ancho.
+   - Menú: círculo completo alrededor de la imagen, con un pin por botón.
+   - Modal: pestañas de secciones fijas abajo.
+   --------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .ova-canvas {
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+
+  /* Menú: si la pantalla es muy baja, la sección hace scroll en vez de recortar */
+  .menu-carrusel-section {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .header-progress-line,
+  .editorial-header,
+  .editorial-footer {
+    flex-shrink: 0;
+  }
+
+  .editorial-header {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "foe   .     sena"
+      "label label label"
+      "title title title";
+    column-gap: 10px;
+    row-gap: 8px;
+    padding: 12px 16px 14px;
+  }
+  .header-brand {
+    justify-self: center;
+    padding-top: 8px;
+    border-top: 1px solid rgba(12, 51, 76, 0.12);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .unit-badge {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+  .course-meta {
+    border-left: none;
+    padding-left: 0;
+  }
+  .course-title {
+    font-size: 14px;
+    line-height: 1.35;
+    text-align: center;
+    hyphens: manual;
+    -webkit-hyphens: manual;
+    text-wrap: balance;
+  }
+
+  .editorial-stage {
+    flex: 1 1 0;
+    min-height: 360px;
+    padding: 8px 16px 20px;
+  }
+  /* La imagen deja lugar para el círculo y los textos por fuera de él */
+  .circular-theme-img {
+    max-height: clamp(120px, calc(100dvh - 560px), 240px);
+  }
+  /* La imagen comparte celda con el carrusel: deja pasar los toques a los botones */
+  .editorial-overview,
+  .editorial-overview * {
+    pointer-events: none;
+  }
+
+  /* Círculo y pines */
+  .wove-arc-line.is-ring {
+    stroke: url(#senaRingGradient);
+    stroke-width: 3.5;
+    filter: drop-shadow(0 2px 6px rgba(49, 146, 44, 0.18));
+  }
+  .circular-carousel-wrapper.two-items .wove-node-dot,
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) .wove-node-dot {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-color: #0c334c;
+    border: 4px solid #FFFFFF;
+    box-shadow: 0 0 0 2px #0c334c, 0 3px 8px rgba(12, 51, 76, 0.3);
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
+
+  /* Botones: los dos con el mismo aspecto, texto por fuera del círculo */
+  .wove-node-num {
+    font-size: 40px;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) {
+    opacity: 1;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-content {
+    transform-origin: 50% 50%;
+    padding: 4px 8px;
+    gap: 12px;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item.is-active .wove-node-num,
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) .wove-node-num {
+    font-size: 46px;
+    color: var(--sena-navy);
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item.is-active .wove-node-title,
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) .wove-node-title {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--sena-navy);
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item.is-active .wove-node-details,
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active) .wove-node-details {
+    opacity: 1;
+  }
+  .circular-carousel-wrapper.two-items .wove-section-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    min-height: 52px;
+  }
+
+  /* Rollover */
+  .circular-carousel-wrapper.two-items .wove-node-item.is-hovered .wove-node-num {
+    color: var(--sena-blue-electric);
+    transform: scale(1.06);
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item.is-hovered .wove-node-title {
+    color: var(--sena-blue-electric);
+    transform: translateX(4px);
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item.is-hovered .wove-section-icon {
+    filter: drop-shadow(0 14px 28px rgba(12, 51, 76, 0.28)) drop-shadow(0 0 20px rgba(40, 186, 184, 0.5)) !important;
+  }
+  .circular-carousel-wrapper.two-items .wove-node-item.is-hovered .wove-node-dot,
+  .circular-carousel-wrapper.two-items .wove-node-item:not(.is-active):hover .wove-node-dot {
+    background-color: var(--sena-blue-electric);
+    box-shadow: 0 0 0 2px var(--sena-blue-electric), 0 0 10px rgba(40, 186, 184, 0.55);
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+
+  /* Pie de página y dock */
+  .editorial-footer {
+    padding: 10px 16px calc(78px + env(safe-area-inset-bottom, 0px));
+  }
+  .footer-legal-notice {
+    font-size: 11px;
+    line-height: 1.4;
+    max-width: 36em;
+    margin: 0 auto;
+  }
+  .purple-dock-nav {
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    height: 56px;
+  }
+
+  /* Modal */
+  .rams-modal-wrapper {
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+  .rams-modal-topbar {
+    flex-shrink: 0;
+    padding: 8px 12px 8px 16px;
+    padding-top: calc(8px + env(safe-area-inset-top, 0px));
+  }
+  .rams-close-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .rams-modal-container {
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 0;
+  }
+  .rams-modal-grid {
+    height: 100%;
+    overscroll-behavior: contain;
+  }
+  .rams-col-media {
+    height: 180px;
+    border-radius: 0;
+  }
+  /* La foto se encuadra por arriba: ahí suelen estar las caras */
+  .support-product-img {
+    border-radius: 0;
+    object-position: center 8%;
+  }
+  .rams-col-content {
+    padding: 22px 16px 28px;
+  }
+  .rams-huge-code {
+    font-size: 40px;
+  }
+  .rams-huge-code.is-long-title {
+    font-size: 26px;
+  }
+  .modal-slide {
+    scroll-margin-top: 12px;
+  }
+  .slide-intro-title-row .slide-intro-icon {
+    width: 60px;
+    height: 60px;
+  }
+  .slide-block-list li {
+    padding: 12px 12px 12px 48px;
+  }
+  .slide-block-highlight {
+    padding: 18px;
+  }
+  .slide-block-highlight-text {
+    font-size: 17px;
+  }
+  .btn-slide-cta {
+    width: 100%;
+  }
+
+  /* Pestañas de secciones: barra fija al pie del modal, con scroll lateral */
+  .rams-col-subtopics {
+    position: sticky;
+    bottom: 0;
+    z-index: 6;
+    flex-shrink: 0;
+    overflow: visible;
+    padding: 10px 0 calc(10px + env(safe-area-inset-bottom, 0px));
+    background: #f3f7fa;
+    box-shadow: 0 -6px 18px rgba(12, 51, 76, 0.08);
+  }
+  .rams-col-subtopics .subtopics-header {
+    display: none;
+  }
+  .subtopics-list {
+    gap: 8px;
+    padding: 2px 16px;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 16px;
+    scrollbar-width: none;
+  }
+  .subtopics-list::-webkit-scrollbar {
+    display: none;
+  }
+  .rams-col-subtopics .slide-nav-tab {
+    flex: 0 0 auto;
+    width: 150px;
+    min-height: 58px;
+    padding: 8px 10px 8px 12px;
+    gap: 2px;
+    scroll-snap-align: start;
+  }
+  .rams-col-subtopics .slide-nav-tab:hover {
+    transform: none;
+  }
+  .rams-col-subtopics .slide-tab-title {
+    font-size: 12px;
+    -webkit-line-clamp: 2;
+  }
+
+  /* Créditos y bibliografía */
+  .sticker-image-wrapper {
+    height: 180px;
+  }
+  .amie-info-sticker:hover,
+  .amie-media-sticker:hover {
+    transform: none !important;
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   6. TELÉFONO EN HORIZONTAL (poco alto)
+   --------------------------------------------------------------------------- */
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 1024px) {
+  .ova-canvas {
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+  .menu-carrusel-section {
+    overflow-y: auto;
+  }
+  .editorial-header {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    min-height: 0;
+  }
+  .header-logo-foe,
+  .header-logo-sena {
+    max-height: 40px;
+    width: auto;
+  }
+  .course-title {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+  .editorial-stage {
+    flex: 1 1 0;
+    min-height: 300px;
+  }
+  .editorial-footer {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .footer-legal-notice {
+    font-size: 10.5px;
+  }
+  .rams-modal-wrapper {
+    max-height: 100dvh;
+  }
+  .rams-modal-container {
+    height: calc(100dvh - 64px);
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   7. PANTALLAS TÁCTILES Y MOVIMIENTO REDUCIDO
+   --------------------------------------------------------------------------- */
+/* Sin hover real: los efectos de hover de créditos no se quedan pegados */
+@media (hover: none) {
+  .amie-info-sticker:hover,
+  .amie-media-sticker:hover {
+    transform: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-hero-icon {
+    animation: none;
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   8. CRÉDITOS: BLOQUE INSTITUCIONAL ("credits.institution")
+   --------------------------------------------------------------------------- */
+.credits-institution {
+  font-family: var(--font-sans);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed rgba(190, 215, 230, 0.9);
+  text-align: center;
+}
+.credits-institution-entity,
+.credits-institution-detail {
+  font-family: inherit;
+}
+.credits-institution-entity {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--sena-navy);
+  text-wrap: balance;
+}
+.credits-institution-details {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.credits-institution-detail {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--sena-navy);
+}
+.credits-institution-detail span {
+  font-weight: 700;
+  color: var(--sena-green);
+}
+
+
+/* ---------------------------------------------------------------------------
+   9. MENÚ: LOGOS EN LA ESQUINA INFERIOR DERECHA
+   --------------------------------------------------------------------------- */
+.menu-brand-logos {
+  position: absolute;
+  right: clamp(24px, 3vw, 48px);
+  bottom: clamp(16px, 2.5vh, 28px);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 2.4vw, 36px);
+  pointer-events: none;
+}
+.menu-brand-logos img {
+  display: block;
+  width: auto;
+  object-fit: contain;
+}
+.menu-brand-logos .popup-logo-left {
+  height: clamp(38px, 5vh, 52px);
+}
+.menu-brand-logos .popup-logo-right {
+  height: clamp(22px, 2.9vh, 30px);
+}
+/* Móvil: debajo del círculo, centrados (en la esquina tapaban el botón 02) */
+@media (max-width: 768px) {
+  .editorial-stage {
+    grid-template-rows: 1fr auto;
+  }
+  .menu-brand-logos {
+    position: static;
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: center;
+    margin-top: 4px;
+  }
+  .menu-brand-logos .popup-logo-left {
+    height: 40px;
+  }
+  .menu-brand-logos .popup-logo-right {
+    height: 24px;
+  }
+  .circular-theme-img {
+    max-height: clamp(110px, calc(100dvh - 630px), 220px);
+  }
+}
+/* Teléfono muy bajo o en horizontal: no hay espacio libre para los logos */
+@media (max-width: 768px) and (max-height: 700px) {
+  .editorial-stage {
+    grid-template-rows: 1fr;
+  }
+  .menu-brand-logos {
+    display: none;
+  }
+  .circular-theme-img {
+    max-height: clamp(120px, calc(100dvh - 560px), 240px);
+  }
+}
+/* Teléfono en horizontal: no hay espacio libre para los logos */
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 1024px) {
+  .menu-brand-logos {
+    display: none;
+  }
+}

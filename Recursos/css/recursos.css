@@ -1,0 +1,520 @@
+/* ==========================================================================
+   OVA SENA - RECURSOS DE APOYO
+   Menú superior (unidades y tipos) y cuadrícula de tarjetas.
+   Reemplaza el escenario del carrusel; portada, encabezado, dock, popups
+   y pie de página siguen usando styles.css y ajustes.css.
+   ========================================================================== */
+
+:root {
+  /* Color por tipo de recurso */
+  --rec-anexos: #3aa735;
+  --rec-complementario: #1d9a98;
+  --rec-glosario: #094bcb;
+  --rec-bibliografia: #0c334c;
+}
+
+/* --- Escenario: menú arriba, cuadrícula con scroll propio --- */
+.recursos-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   MENÚ SUPERIOR
+   -------------------------------------------------------------------------- */
+.recursos-topnav {
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 32px;
+  padding: 14px 44px 14px 105px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(12, 51, 76, 0.08);
+}
+
+.topnav-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.topnav-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+
+/* Pestañas de unidad (control segmentado) */
+.topnav-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(12, 51, 76, 0.06);
+  border-radius: var(--radius-full);
+}
+
+.topnav-tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--sena-navy);
+  font: 600 13px/1 var(--font-primary);
+  padding: 9px 16px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.topnav-tab:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+.topnav-tab[aria-selected="true"] {
+  background: var(--sena-navy);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(12, 51, 76, 0.22);
+}
+
+/* Filtros por tipo */
+.topnav-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topnav-chip {
+  --chip: var(--sena-navy);
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgba(12, 51, 76, 0.16);
+  background: #ffffff;
+  color: var(--sena-navy);
+  font: 600 13px/1 var(--font-primary);
+  padding: 7px 8px 7px 12px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+.topnav-chip.type-anexos { --chip: var(--rec-anexos); }
+.topnav-chip.type-complementario { --chip: var(--rec-complementario); }
+.topnav-chip.type-glosario { --chip: var(--rec-glosario); }
+.topnav-chip.type-bibliografia { --chip: var(--rec-bibliografia); }
+
+.topnav-chip .chip-icon {
+  display: inline-flex;
+  color: var(--chip);
+}
+.topnav-chip .chip-count {
+  min-width: 22px;
+  padding: 3px 7px;
+  border-radius: var(--radius-full);
+  background: rgba(12, 51, 76, 0.07);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+.topnav-chip:hover:not(:disabled) {
+  border-color: var(--chip);
+}
+.topnav-chip[aria-pressed="true"] {
+  background: var(--chip);
+  border-color: var(--chip);
+  color: #ffffff;
+}
+.topnav-chip[aria-pressed="true"] .chip-icon { color: #ffffff; }
+.topnav-chip[aria-pressed="true"] .chip-count {
+  background: rgba(255, 255, 255, 0.22);
+}
+.topnav-chip:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   ZONA CON SCROLL: introducción y grupos
+   -------------------------------------------------------------------------- */
+.recursos-scroll {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 28px 44px 32px 105px;
+  scroll-behavior: smooth;
+  outline: none;
+}
+
+.recursos-intro {
+  max-width: 980px;
+  margin-bottom: 26px;
+}
+.recursos-kicker {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sena-blue-electric);
+  margin-bottom: 8px;
+}
+.recursos-heading {
+  font-size: clamp(22px, 2.3vw, 32px);
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--sena-navy);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.recursos-intro-text {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  max-width: 760px;
+}
+.recursos-count {
+  margin-top: 10px;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-text-light);
+}
+
+/* --- Grupo por tipo --- */
+.rec-group {
+  --accent: var(--sena-navy);
+  margin-bottom: 34px;
+}
+.rec-group.type-anexos { --accent: var(--rec-anexos); }
+.rec-group.type-complementario { --accent: var(--rec-complementario); }
+.rec-group.type-glosario { --accent: var(--rec-glosario); }
+.rec-group.type-bibliografia { --accent: var(--rec-bibliografia); }
+
+.rec-group-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--sena-navy);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(12, 51, 76, 0.1);
+}
+.rec-group-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  color: #ffffff;
+  background: var(--accent);
+}
+.rec-group-count {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-light);
+}
+
+/* --- Cuadrícula --- */
+.rec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 16px;
+}
+.rec-grid-bibliografia {
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+}
+
+/* --- Tarjeta --- */
+.rec-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 18px 16px;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-fast);
+}
+.rec-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.rec-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 22px;
+}
+.rec-card-top:empty { display: none; }
+
+.rec-format {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.rec-unit-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sena-navy);
+  background: rgba(12, 51, 76, 0.06);
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.rec-seen {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: #ffffff;
+  background: var(--sena-green);
+}
+.rec-seen[hidden] { display: none; }
+
+.rec-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--sena-navy);
+  text-wrap: pretty;
+}
+.rec-text {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+.rec-reference {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--sena-navy);
+  overflow-wrap: anywhere;
+}
+.rec-reference-small {
+  font-size: 12.5px;
+  color: var(--color-text-light);
+  padding-top: 10px;
+  border-top: 1px dashed rgba(12, 51, 76, 0.14);
+}
+
+.rec-card-foot {
+  margin-top: auto;
+  padding-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.rec-domain {
+  min-width: 0;
+  font-family: var(--font-primary);
+  font-size: 11.5px;
+  color: var(--color-text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rec-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #ffffff;
+  font: 700 12.5px/1 var(--font-primary);
+  text-decoration: none;
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+}
+.rec-btn:hover { filter: brightness(1.12); }
+.rec-btn:active { transform: scale(0.97); }
+
+/* Bibliografía: más compacta */
+.rec-card-biblio {
+  padding: 14px 16px 12px;
+  gap: 8px;
+  border-top-width: 1px;
+  border-left: 3px solid var(--accent);
+}
+.rec-card-biblio .rec-reference { font-size: 13.5px; }
+.rec-card-biblio .rec-btn {
+  padding: 7px 12px;
+  background: var(--sena-green);
+  color: #ffffff;
+}
+.rec-card-biblio .rec-btn:hover {
+  background: #073ea8;
+  filter: none;
+}
+
+/* Glosario: término destacado */
+.rec-card-glosario {
+  background: linear-gradient(180deg, #ffffff 0%, #f3f6fd 100%);
+}
+.rec-term {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--sena-navy);
+}
+.rec-definition {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+/* Recurso ya consultado */
+.rec-card.is-seen { border-color: rgba(9, 75, 203, 0.35); }
+
+.recursos-empty {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* Logos al final de la cuadrícula (no flotan sobre las tarjetas) */
+.recursos-brand-logos.menu-brand-logos {
+  position: static;
+  justify-content: flex-end;
+  margin-top: 8px;
+  pointer-events: none;
+}
+
+/* La animación de entrada del menú se aplica al nuevo escenario */
+.menu-carrusel-section.transition-in .recursos-topnav,
+.menu-carrusel-section.transition-in .recursos-scroll {
+  animation: recFadeUp 520ms var(--ease-editorial) both;
+}
+.menu-carrusel-section.transition-in .recursos-scroll { animation-delay: 80ms; }
+@keyframes recFadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rec-card, .rec-card:hover { transition: none; transform: none; }
+  .menu-carrusel-section.transition-in .recursos-topnav,
+  .menu-carrusel-section.transition-in .recursos-scroll { animation: none; }
+  .recursos-scroll { scroll-behavior: auto; }
+}
+
+/* --------------------------------------------------------------------------
+   TABLETA Y MÓVIL
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .recursos-topnav { gap: 10px 20px; }
+}
+
+@media (max-width: 768px) {
+  .recursos-stage {
+    padding: 0;
+  }
+  .recursos-topnav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+  .topnav-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+  /* Pestañas y filtros se desplazan en horizontal en vez de partirse */
+  .recursos-stage,
+  .recursos-topnav,
+  .topnav-row {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .topnav-tabs,
+  .topnav-chips {
+    max-width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .topnav-chips {
+    -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent);
+    mask-image: linear-gradient(90deg, #000 85%, transparent);
+    padding-right: 24px;
+  }
+  .topnav-tabs::-webkit-scrollbar,
+  .topnav-chips::-webkit-scrollbar { display: none; }
+  .topnav-tabs { display: flex; }
+  .topnav-tab { flex: 1 0 auto; padding: 9px 12px; font-size: 12.5px; }
+
+  /* En móvil todo el escenario hace scroll y el menú queda fijo arriba,
+     así las tarjetas tienen más alto disponible */
+  .recursos-stage {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .recursos-topnav {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.94);
+  }
+  .recursos-scroll {
+    flex: none;
+    overflow: visible;
+    padding: 20px 16px 120px;
+  }
+  .recursos-heading { font-size: 22px; }
+  .recursos-intro { margin-bottom: 18px; }
+  .rec-grid,
+  .rec-grid-bibliografia {
+    grid-template-columns: 1fr;
+  }
+  .recursos-brand-logos.menu-brand-logos {
+    justify-content: center;
+  }
+}
+
+/* Botones del dock apagados desde "features" (enabled: false) */
+.dock-btn[hidden] {
+  display: none !important;
+}
+/* Móvil: la barra inferior se ajusta cuando hay un botón menos */
+@media (max-width: 768px) {
+  .purple-dock-nav:has(.dock-btn[hidden]) {
+    width: 150px;
+  }
+}

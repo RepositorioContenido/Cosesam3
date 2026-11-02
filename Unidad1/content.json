@@ -49,8 +49,7 @@
     {
       "id": "01",
       "number": "01",
-      "code": "Reflexión sobre el Reto",
-      "codeHighlight": "Reto",
+      "code": "Reflexión sobre el reto: ¿decidimos por impresión o con método?",
       "label": "Unidad 1",
       "typeLabel": "Reflexión sobre el reto",
       "shortTitle": "Reflexión del reto",
@@ -141,12 +140,8 @@
               "span": "col-2"
             },
             {
-              "desc": "Estas herramientas le permitirán resolver situaciones similares en su territorio, donde decidir sin evidencia puede ocultar brechas o priorizar riesgos equivocados.",
-              "span": "col-1"
-            },
-            {
-              "desc": "Para comenzar, lo invitamos a ver el video <em>Del dato a la decisión</em>.",
-              "span": "col-1"
+              "desc": "Estas herramientas le permitirán resolver situaciones similares en su territorio, donde decidir sin evidencia puede ocultar brechas o priorizar riesgos equivocados.<br><br>Para comenzar, lo invitamos a ver el video <em>Del dato a la decisión</em>.",
+              "span": "col-2"
             }
           ]
         }
@@ -165,7 +160,7 @@
       "featuredImageAlt": "Médica señalando un tablero de datos de salud comunitaria con mapas",
       "modalImage": "assets/modal1.jpg",
       "modalImageAlt": "Profesional analizando datos en pantallas",
-      "youtubeUrl": "https://www.youtube.com/watch?v=fNGWzsIW0HM"
+      "youtubeUrl": "https://www.youtube.com/watch?v=XRoYmZBMH4E"
     },
     {
       "id": "03",

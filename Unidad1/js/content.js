@@ -8,10 +8,10 @@
  *  edita  content.json  y corré el generador.
  * ===========================================================================
  *
- *  contentSha256: f4305f12
- *  generatedAt:   2026-10-30T03:20:08.666Z
+ *  contentSha256: 00b1af6d
+ *  generatedAt:   2026-11-02T04:40:22.151Z
  */
-window.OVA_CONTENT_META = { contentSha256: "f4305f12", generatedAt: "2026-10-30T03:20:08.667Z" };
+window.OVA_CONTENT_META = { contentSha256: "00b1af6d", generatedAt: "2026-11-02T04:40:22.156Z" };
 window.OVA_CONTENT = {
   "courseTitle": "Analítica predictiva aplicada a la gestión territorial en salud",
   "unitCode": "Unidad 1",
@@ -34,8 +34,7 @@ window.OVA_CONTENT = {
     {
       "id": "01",
       "number": "01",
-      "code": "Reflexión sobre el Reto",
-      "codeHighlight": "Reto",
+      "code": "Reflexión sobre el reto: ¿decidimos por impresión o con método?",
       "label": "Unidad 1",
       "typeLabel": "Reflexión sobre el reto",
       "shortTitle": "Reflexión del reto",
@@ -126,12 +125,8 @@ window.OVA_CONTENT = {
               "span": "col-2"
             },
             {
-              "desc": "Estas herramientas le permitirán resolver situaciones similares en su territorio, donde decidir sin evidencia puede ocultar brechas o priorizar riesgos equivocados.",
-              "span": "col-1"
-            },
-            {
-              "desc": "Para comenzar, lo invitamos a ver el video <em>Del dato a la decisión</em>.",
-              "span": "col-1"
+              "desc": "Estas herramientas le permitirán resolver situaciones similares en su territorio, donde decidir sin evidencia puede ocultar brechas o priorizar riesgos equivocados.<br><br>Para comenzar, lo invitamos a ver el video <em>Del dato a la decisión</em>.",
+              "span": "col-2"
             }
           ]
         }
@@ -150,7 +145,7 @@ window.OVA_CONTENT = {
       "featuredImageAlt": "Médica señalando un tablero de datos de salud comunitaria con mapas",
       "modalImage": "assets/modal1.jpg",
       "modalImageAlt": "Profesional analizando datos en pantallas",
-      "youtubeUrl": "https://www.youtube.com/watch?v=fNGWzsIW0HM"
+      "youtubeUrl": "https://www.youtube.com/watch?v=XRoYmZBMH4E"
     },
     {
       "id": "03",

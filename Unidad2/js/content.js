@@ -8,10 +8,10 @@
  *  edita  content.json  y corré el generador.
  * ===========================================================================
  *
- *  contentSha256: d6139cf4
- *  generatedAt:   2026-10-30T03:21:17.509Z
+ *  contentSha256: 0dad997f
+ *  generatedAt:   2026-11-05T04:37:18.955Z
  */
-window.OVA_CONTENT_META = { contentSha256: "d6139cf4", generatedAt: "2026-10-30T03:21:17.509Z" };
+window.OVA_CONTENT_META = { contentSha256: "0dad997f", generatedAt: "2026-11-05T04:37:18.955Z" };
 window.OVA_CONTENT = {
   "courseTitle": "Gobernanza de datos e interoperabilidad en salud",
   "unitCode": "Unidad 2",
@@ -34,8 +34,7 @@ window.OVA_CONTENT = {
     {
       "id": "01",
       "number": "01",
-      "code": "Reflexión sobre el Reto",
-      "codeHighlight": "Reto",
+      "code": "Reflexión sobre el reto: ¿qué tan seguros estamos de las cifras?",
       "label": "Unidad 2",
       "typeLabel": "Reflexión sobre el reto",
       "shortTitle": "Reflexión del reto",
@@ -145,7 +144,7 @@ window.OVA_CONTENT = {
       "featuredImageAlt": "Equipo jurídico y de salud revisando normas y datos en una tableta",
       "modalImage": "assets/modal1.jpg",
       "modalImageAlt": "Técnico revisando la infraestructura de interoperabilidad",
-      "youtubeUrl": "https://www.youtube.com/watch?v=L5GX0lIuyOg"
+      "youtubeUrl": "https://www.youtube.com/watch?v=8WBpHmOGCvM"
     },
     {
       "id": "03",

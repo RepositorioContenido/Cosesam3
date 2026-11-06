@@ -8,10 +8,10 @@
  *  edita  content.json  y corré el generador.
  * ===========================================================================
  *
- *  contentSha256: 17d78a1c
- *  generatedAt:   2026-10-28T21:08:01.776Z
+ *  contentSha256: d545a69c
+ *  generatedAt:   2026-11-05T04:37:18.790Z
  */
-window.OVA_CONTENT_META = { contentSha256: "17d78a1c", generatedAt: "2026-10-28T21:08:01.784Z" };
+window.OVA_CONTENT_META = { contentSha256: "d545a69c", generatedAt: "2026-11-05T04:37:18.791Z" };
 window.OVA_CONTENT = {
   "courseTitle": "Decisiones inteligentes en salud: analítica de datos, gobernanza e inteligencia artificial para la gestión territorial",
   "unitCode": "Reto central",
@@ -94,11 +94,11 @@ window.OVA_CONTENT = {
             },
             {
               "num": "04",
-              "frontTitle": "Unidad transversal",
-              "icon": "assets/unidad4.png",
+              "frontTitle": "Unidad 4",
+              "icon": "assets/unidad_4.png",
               "backBadge": "COMPETENCIA",
-              "backTitle": "Unidad transversal",
-              "backDesc": "<strong>Participación, diálogo social y fortalecimiento del tejido productivo rural y urbano.</strong> Aplica herramientas de diálogo social y concertación territorial para facilitar la articulación entre actores y contribuir a la gobernanza y sostenibilidad de las iniciativas de gestión territorial en salud."
+              "backTitle": "Unidad 4",
+              "backDesc": "Sumada a las anteriores está la unidad transversal «Participación, diálogo social y fortalecimiento del tejido productivo rural y urbano», cuya competencia es: \"Aplica herramientas de diálogo social y concertación territorial para facilitar la articulación entre actores y contribuir a la gobernanza y sostenibilidad de las iniciativas de gestión territorial en salud\". Esta competencia se relaciona con el cierre de la situación planteada en este reto, específicamente, en la identificación de actores, sus roles en la decisión y en la retroalimentación a la comunidad."
             }
           ],
           "iconAboveTitle": true

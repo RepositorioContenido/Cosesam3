@@ -19,6 +19,8 @@
  *    resources ............... un botón del menú por recurso; cada uno abre
  *                              un modal con sus "slides" (o solo un video
  *                              de YouTube si tiene "youtubeUrl" y no "slides")
+ *                              "visible": false en un recurso oculta su botón
+ *                              del menú sin borrar el recurso ni su modal
  *    credits, bibliography ... ventanas de Créditos y Bibliografía del dock
  *    features ................ prender / apagar botones ("enabled": false)
  *
@@ -49,8 +51,7 @@
     {
       "id": "01",
       "number": "01",
-      "code": "Reflexión sobre el Reto",
-      "codeHighlight": "Reto",
+      "code": "Reflexión sobre el reto: ¿qué tan seguros estamos de las cifras?",
       "label": "Unidad 2",
       "typeLabel": "Reflexión sobre el reto",
       "shortTitle": "Reflexión del reto",
@@ -160,7 +161,7 @@
       "featuredImageAlt": "Equipo jurídico y de salud revisando normas y datos en una tableta",
       "modalImage": "assets/modal1.jpg",
       "modalImageAlt": "Técnico revisando la infraestructura de interoperabilidad",
-      "youtubeUrl": "https://www.youtube.com/watch?v=L5GX0lIuyOg"
+      "youtubeUrl": "https://www.youtube.com/watch?v=8WBpHmOGCvM"
     },
     {
       "id": "03",

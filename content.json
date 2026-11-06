@@ -19,6 +19,8 @@
  *                              título de la pestaña del navegador
  *    resources ............... un botón del menú por recurso; cada uno abre
  *                              un modal con sus "slides"
+ *                              "visible": false en un recurso oculta su botón
+ *                              del menú sin borrar el recurso ni su modal
  *    credits, bibliography ... ventanas de Créditos y Bibliografía del dock
  *    features ................ prender / apagar botones ("enabled": false)
  *
@@ -110,11 +112,11 @@
             },
             {
               "num": "04",
-              "frontTitle": "Unidad transversal",
-              "icon": "assets/unidad4.png",
+              "frontTitle": "Unidad 4",
+              "icon": "assets/unidad_4.png",
               "backBadge": "COMPETENCIA",
-              "backTitle": "Unidad transversal",
-              "backDesc": "<strong>Participación, diálogo social y fortalecimiento del tejido productivo rural y urbano.</strong> Aplica herramientas de diálogo social y concertación territorial para facilitar la articulación entre actores y contribuir a la gobernanza y sostenibilidad de las iniciativas de gestión territorial en salud."
+              "backTitle": "Unidad 4",
+              "backDesc": "Sumada a las anteriores está la unidad transversal «Participación, diálogo social y fortalecimiento del tejido productivo rural y urbano», cuya competencia es: \"Aplica herramientas de diálogo social y concertación territorial para facilitar la articulación entre actores y contribuir a la gobernanza y sostenibilidad de las iniciativas de gestión territorial en salud\". Esta competencia se relaciona con el cierre de la situación planteada en este reto, específicamente, en la identificación de actores, sus roles en la decisión y en la retroalimentación a la comunidad."
             }
           ],
           "iconAboveTitle": true

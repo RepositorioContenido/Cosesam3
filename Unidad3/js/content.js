@@ -8,10 +8,10 @@
  *  edita  content.json  y corré el generador.
  * ===========================================================================
  *
- *  contentSha256: 596db454
- *  generatedAt:   2026-10-30T03:22:59.926Z
+ *  contentSha256: 31d32f8e
+ *  generatedAt:   2026-11-05T04:37:19.026Z
  */
-window.OVA_CONTENT_META = { contentSha256: "596db454", generatedAt: "2026-10-30T03:22:59.929Z" };
+window.OVA_CONTENT_META = { contentSha256: "31d32f8e", generatedAt: "2026-11-05T04:37:19.026Z" };
 window.OVA_CONTENT = {
   "courseTitle": "Aplicación de inteligencia artificial en la gestión territorial en salud",
   "unitCode": "Unidad 3",
@@ -34,8 +34,7 @@ window.OVA_CONTENT = {
     {
       "id": "01",
       "number": "01",
-      "code": "Reflexión sobre el Reto",
-      "codeHighlight": "Reto",
+      "code": "Reflexión sobre el reto: ¿nos sirve esa herramienta?",
       "label": "Unidad 3",
       "typeLabel": "Reflexión sobre el reto",
       "shortTitle": "Reflexión del reto",
@@ -147,7 +146,7 @@ window.OVA_CONTENT = {
       "featuredImageAlt": "Médica revisando la historia clínica en una tableta con un campesino adulto mayor",
       "modalImage": "assets/modal1.jpg",
       "modalImageAlt": "Profesional de la salud interactuando con una pantalla de inteligencia artificial",
-      "youtubeUrl": "https://www.youtube.com/watch?v=-XqvaQB6S8o"
+      "youtubeUrl": "https://www.youtube.com/watch?v=-CUJh93F-RY"
     },
     {
       "id": "03",

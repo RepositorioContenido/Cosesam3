@@ -98,7 +98,18 @@ class WoveModalManager {
     if (this.modalTopCourse) this.modalTopCourse.textContent = resource.typeLabel || resource.shortTitle || '';
 
     if (this.supportImg) {
-      this.supportImg.src = resource.modalImage || '';
+      // En móvil vertical se usa la versión horizontal de la imagen
+      // (modalImageMobile o, por convención, assets/<nombre>_m.jpg).
+      const baseImg = resource.modalImage || '';
+      const mobileImg = resource.modalImageMobile || baseImg.replace(/\.(jpe?g|png|webp)$/i, '_m.jpg');
+      const isMobile = window.matchMedia('(max-width: 768px) and (orientation: portrait), (max-width: 768px) and (min-height: 501px)').matches;
+      this.supportImg.onerror = null;
+      if (isMobile && baseImg && mobileImg !== baseImg) {
+        this.supportImg.onerror = () => { this.supportImg.onerror = null; this.supportImg.src = baseImg; };
+        this.supportImg.src = mobileImg;
+      } else {
+        this.supportImg.src = baseImg;
+      }
       this.supportImg.alt = resource.modalImageAlt || '';
     }
 

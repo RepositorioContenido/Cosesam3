@@ -8,10 +8,10 @@
  *  edita  content.json  y corré el generador.
  * ===========================================================================
  *
- *  contentSha256: 00b1af6d
- *  generatedAt:   2026-11-02T04:40:22.151Z
+ *  contentSha256: b88065f6
+ *  generatedAt:   2026-11-05T04:37:18.885Z
  */
-window.OVA_CONTENT_META = { contentSha256: "00b1af6d", generatedAt: "2026-11-02T04:40:22.156Z" };
+window.OVA_CONTENT_META = { contentSha256: "b88065f6", generatedAt: "2026-11-05T04:37:18.885Z" };
 window.OVA_CONTENT = {
   "courseTitle": "Analítica predictiva aplicada a la gestión territorial en salud",
   "unitCode": "Unidad 1",
@@ -145,7 +145,7 @@ window.OVA_CONTENT = {
       "featuredImageAlt": "Médica señalando un tablero de datos de salud comunitaria con mapas",
       "modalImage": "assets/modal1.jpg",
       "modalImageAlt": "Profesional analizando datos en pantallas",
-      "youtubeUrl": "https://www.youtube.com/watch?v=XRoYmZBMH4E"
+      "youtubeUrl": "https://www.youtube.com/watch?v=cvO24AwGLZk"
     },
     {
       "id": "03",

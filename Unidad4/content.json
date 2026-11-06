@@ -19,6 +19,8 @@
  *    resources ............... un botón del menú por recurso; cada uno abre
  *                              un modal con sus "slides" (o solo un video
  *                              de YouTube si tiene "youtubeUrl" y no "slides")
+ *                              "visible": false en un recurso oculta su botón
+ *                              del menú sin borrar el recurso ni su modal
  *    credits, bibliography ... ventanas de Créditos y Bibliografía del dock
  *    features ................ prender / apagar botones ("enabled": false)
  *
@@ -49,7 +51,7 @@
     {
       "id": "01",
       "number": "01",
-      "code": "Reflexión sobre el Reto",
+      "code": "Reflexión sobre el reto",
       "codeHighlight": "Reto",
       "label": "Unidad 4",
       "typeLabel": "Reflexión sobre el reto",
@@ -145,10 +147,6 @@
             {
               "desc": "En esta unidad aprenderá a distinguir asistir de participar con incidencia, a analizar los intereses, capacidades, relaciones y asimetrías de los actores, a diseñar un espacio de diálogo en la vereda y en el barrio, a separar lo concertable de lo que debe escalarse y a escribir un acuerdo con sus cinco elementos. Con ello, convertirá su párrafo en la primera parte de su ruta de concertación.",
               "span": "col-2"
-            },
-            {
-              "desc": "Continúe con el video conceptual y los recursos de la unidad. ¡Adelante!",
-              "span": "col-2"
             }
           ]
         }
@@ -167,7 +165,7 @@
       "featuredImageAlt": "Profesional de salud y gestante revisando una guía de alimentación comunitaria",
       "modalImage": "assets/modal1.jpg",
       "modalImageAlt": "Profesional revisando una lista de verificación de calidad",
-      "youtubeUrl": "https://www.youtube.com/watch?v=kDiIMEsY_Jo"
+      "youtubeUrl": "https://www.youtube.com/watch?v=OYYNtAntQqU"
     },
     {
       "id": "03",

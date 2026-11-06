@@ -5,7 +5,8 @@
  * ============================================================================
  *
  *  Responsabilidades (y solo estas):
- *    1. Publicar js/content.js como window.courseData
+ *    1. Publicar js/content.js como window.courseData (sin los recursos
+ *       marcados "visible": false, que se ocultan del menú)
  *    2. Aplicar la sección "features" de content.json sobre los botones
  *    3. Verificar la integridad del contenido al abrir y avisar si algo falla
  *
@@ -51,7 +52,27 @@
     );
     return;
   }
-  global.courseData = content;
+  // Botones del menú: un recurso con "visible": false sigue en content.json
+  // (con su modal intacto), pero no aparece en el carrusel ni en el progreso.
+  var all = Array.isArray(content.resources) ? content.resources : [];
+  var shown = all.filter(function (r) { return r && r.visible !== false; });
+  if (shown.length === 0 && all.length) {
+    warn('Todos los recursos tienen "visible": false.', 'Se muestran todos para no dejar el menú vacío.');
+    shown = all;
+  }
+  if (shown.length !== all.length) {
+    var view = {};
+    Object.keys(content).forEach(function (k) { view[k] = content[k]; });
+    view.resources = shown.map(function (r, i) {
+      var copy = {};
+      Object.keys(r).forEach(function (k) { copy[k] = r[k]; });
+      copy.number = (i < 9 ? '0' : '') + (i + 1);   // numeración sin saltos
+      return copy;
+    });
+    global.courseData = view;
+  } else {
+    global.courseData = content;
+  }
 
   // ---- 2. verificar integridad -------------------------------------------
   if (!meta || !meta.contentSha256) {

@@ -8,10 +8,10 @@
  *  edita  content.json  y corré el generador.
  * ===========================================================================
  *
- *  contentSha256: e11d7443
- *  generatedAt:   2026-10-30T03:23:59.204Z
+ *  contentSha256: 5bc9dedf
+ *  generatedAt:   2026-11-06T17:22:04.304Z
  */
-window.OVA_CONTENT_META = { contentSha256: "e11d7443", generatedAt: "2026-10-30T03:23:59.208Z" };
+window.OVA_CONTENT_META = { contentSha256: "5bc9dedf", generatedAt: "2026-11-06T17:22:04.304Z" };
 window.OVA_CONTENT = {
   "courseTitle": "Participación, diálogo social y fortalecimiento del tejido productivo rural y urbano",
   "unitCode": "Unidad 4",
@@ -34,7 +34,7 @@ window.OVA_CONTENT = {
     {
       "id": "01",
       "number": "01",
-      "code": "Reflexión sobre el Reto",
+      "code": "Reflexión sobre el reto",
       "codeHighlight": "Reto",
       "label": "Unidad 4",
       "typeLabel": "Reflexión sobre el reto",
@@ -130,10 +130,6 @@ window.OVA_CONTENT = {
             {
               "desc": "En esta unidad aprenderá a distinguir asistir de participar con incidencia, a analizar los intereses, capacidades, relaciones y asimetrías de los actores, a diseñar un espacio de diálogo en la vereda y en el barrio, a separar lo concertable de lo que debe escalarse y a escribir un acuerdo con sus cinco elementos. Con ello, convertirá su párrafo en la primera parte de su ruta de concertación.",
               "span": "col-2"
-            },
-            {
-              "desc": "Continúe con el video conceptual y los recursos de la unidad. ¡Adelante!",
-              "span": "col-2"
             }
           ]
         }
@@ -152,7 +148,7 @@ window.OVA_CONTENT = {
       "featuredImageAlt": "Profesional de salud y gestante revisando una guía de alimentación comunitaria",
       "modalImage": "assets/modal1.jpg",
       "modalImageAlt": "Profesional revisando una lista de verificación de calidad",
-      "youtubeUrl": "https://www.youtube.com/watch?v=kDiIMEsY_Jo"
+      "youtubeUrl": "https://www.youtube.com/watch?v=OYYNtAntQqU"
     },
     {
       "id": "03",

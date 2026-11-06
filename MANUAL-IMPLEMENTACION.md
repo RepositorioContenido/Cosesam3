@@ -92,6 +92,22 @@ Obligatorios: `courseTitle`, `unitCode` y al menos un recurso.
 
 Cada recurso es un botón del menú que abre un modal. Hoy hay dos: **Reto** y **Pretest**.
 
+### Ocultar o mostrar un botón del menú
+
+Para ocultar un botón sin borrar el recurso ni su modal, agregue `"visible": false`
+al recurso y ejecute `generar-content.command`. Para volver a mostrarlo, cámbielo a
+`true` o borre la línea. Los botones visibles se renumeran solos (01, 02, 03…), así
+que no hay que tocar `"number"`.
+
+```jsonc
+{
+  "id": "03",
+  "number": "03",
+  "visible": false,
+  ...
+}
+```
+
 ```jsonc
 {
   "id": "01",

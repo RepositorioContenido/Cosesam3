@@ -4566,3 +4566,21 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
     padding: 26px 18px;
   }
 }
+
+/* ==========================================================================
+   IMAGEN DEL MODAL EN MÓVIL (vertical)
+   En pantallas angostas la imagen de apoyo pasa a ser una franja horizontal.
+   Se muestra la versión horizontal completa de la foto (assets/<nombre>_m.jpg)
+   en un marco 16:9, para que no se vean solo las cabezas.
+   ========================================================================== */
+@media (max-width: 768px) and (orientation: portrait), (max-width: 768px) and (min-height: 501px) {
+  .rams-col-media {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9;
+    max-height: 48dvh;
+  }
+  .rams-col-media .support-product-img {
+    object-position: center center !important;
+  }
+}

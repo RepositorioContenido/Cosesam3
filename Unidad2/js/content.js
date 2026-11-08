@@ -144,7 +144,7 @@ window.OVA_CONTENT = {
       "featuredImageAlt": "Equipo jurídico y de salud revisando normas y datos en una tableta",
       "modalImage": "assets/modal1.jpg",
       "modalImageAlt": "Técnico revisando la infraestructura de interoperabilidad",
-      "youtubeUrl": "https://www.youtube.com/watch?v=8WBpHmOGCvM"
+      "youtubeUrl": "https://www.youtube.com/watch?v=L5GX0lIuyOg"
     },
     {
       "id": "03",

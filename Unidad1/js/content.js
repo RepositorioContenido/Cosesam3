@@ -145,7 +145,7 @@ window.OVA_CONTENT = {
       "featuredImageAlt": "Médica señalando un tablero de datos de salud comunitaria con mapas",
       "modalImage": "assets/modal1.jpg",
       "modalImageAlt": "Profesional analizando datos en pantallas",
-      "youtubeUrl": "https://www.youtube.com/watch?v=cvO24AwGLZk"
+      "youtubeUrl": "https://www.youtube.com/watch?v=XRoYmZBMH4E"
     },
     {
       "id": "03",

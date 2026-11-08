@@ -146,7 +146,7 @@ window.OVA_CONTENT = {
       "featuredImageAlt": "Médica revisando la historia clínica en una tableta con un campesino adulto mayor",
       "modalImage": "assets/modal1.jpg",
       "modalImageAlt": "Profesional de la salud interactuando con una pantalla de inteligencia artificial",
-      "youtubeUrl": "https://www.youtube.com/watch?v=-CUJh93F-RY"
+      "youtubeUrl": "https://www.youtube.com/watch?v=-XqvaQB6S8o"
     },
     {
       "id": "03",

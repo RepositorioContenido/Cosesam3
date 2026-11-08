@@ -148,7 +148,7 @@ window.OVA_CONTENT = {
       "featuredImageAlt": "Profesional de salud y gestante revisando una guía de alimentación comunitaria",
       "modalImage": "assets/modal1.jpg",
       "modalImageAlt": "Profesional revisando una lista de verificación de calidad",
-      "youtubeUrl": "https://www.youtube.com/watch?v=OYYNtAntQqU"
+      "youtubeUrl": "https://www.youtube.com/watch?v=kDiIMEsY_Jo"
     },
     {
       "id": "03",
